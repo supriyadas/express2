@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00b7ff;
+}
+.cust-table{
+  width: 100%;
+  height: 30px;
+  padding: 6px 10px;
+}
+.cust-table:nth-child(even){
+  background-color: #E0E0E0;
+}
+.cust-table.table-head{
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+  margin-bottom: 5px;
+}
+.cust-table span{
+  display: block;
+  float: left;
+}

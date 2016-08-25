@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title><%= title %></title>
+
+	<meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	<link href="stylesheets/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button> <a class="navbar-brand" href="#">Node.js</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">Link</a>
+						</li>
+						<li>
+							<a href="#">Link</a>
+						</li>
+					</ul>
+					
+					
+				</div>
+
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-5">
+					<form class="form-horizontal" method="post" action="userlist" id="form1" role="form">
+						<div class="form-group">
+
+							<label class="col-sm-2 control-label">
+								Username
+							</label>
+							<div class="col-sm-10">
+								<input type="text" name="username" class="form-control" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">
+								Email
+							</label>
+							<div class="col-sm-10">
+								<input type="email" name="email" class="form-control" >
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<input type="reset" class="hidden" />
+								<button type="submit" name="submit" class="btn btn-default">
+									Add Account
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-7" id="must1">
+					<div class="cust-table table-head">
+						<span style="width: 10%">#</span>
+						<span style="width: 35%">Username</span>
+						<span style="width: 35%">Email</span>
+						<span style="width: 20%">Action</span>
+					</div>
+					{{#users}}
+					<div class="cust-table">
+						<span style="width: 10%">{{slno}}</span>
+						<span style="width: 35%">{{username}}</span>
+						<span style="width: 35%">{{email}}</span>
+						<span style="width: 20%">
+							<a href="javascript:void()" onclick="delete_user({{slno}})">		
+								Delete
+							</a>
+							<a href="javascript:void()" onclick="edit_user({{slno}})">		
+								Edit
+							</a>
+						</span>
+					</div>
+					{{/users}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="editmodel" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content"> 
+		    <div class="modal-header"> 
+		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		    		<span aria-hidden="true">×</span>
+		    	</button> 
+		    	<h4 class="modal-title" id="myLargeModalLabel">Edit User</h4> 
+		    </div> 
+		    <div class="modal-body">
+		    	<form class="form-horizontal" method="post" action="userlist" id="form2" role="form">
+						<div class="form-group">
+							<input type="hidden" name="_method" value="PUT">
+							<label class="col-sm-2 control-label">
+								Username
+							</label>
+							<div class="col-sm-10">
+								<input type="text" name="username" class="form-control" value="{{username}}" >
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">
+								Email
+							</label>
+							<div class="col-sm-10">
+								<input type="email" name="email" class="form-control" value="{{email}}">
+								<input type="hidden" name="slno" alue="{{slno}}">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<input type="reset" class="hidden" />
+								<button type="submit" name="submit" class="btn btn-default">
+									Update Account
+								</button>
+							</div>
+						</div>
+				</form>
+		    </div> 
+		</div>
+  	</div>
+</div>
+
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/bootstrap.min.js"></script>
+<script src="javascripts/mustache.min.js"></script>
+<script src="javascripts/jquery.form.min.js"></script>
+<script src="javascripts/<%= page %>.js"></script>
+</body>
+</html>
